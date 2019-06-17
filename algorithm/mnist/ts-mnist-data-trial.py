@@ -3,6 +3,10 @@
 """
 Created on Mon May 27 23:13:30 2019
 
+简单处理Mnist文件
+
+参考：https://blog.csdn.net/briblue/article/details/80398369
+
 @author: liuqiyun
 """
 
