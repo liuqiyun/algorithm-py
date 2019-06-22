@@ -11,6 +11,7 @@ Created on 2019/06/17
 """
 
 import tensorflow as tf;
+import numpy as np
 from tensorflow.examples.tutorials.mnist import input_data;
 
 import os
@@ -202,6 +203,13 @@ def train(mnist):
         test_acc = sess.run(accuracy, feed_dict=test_feed)
         print("After %d training step(s), test accuracy using average "
               "model is %g" % (TRAINING_STEPS, test_acc))
+        
+        #预测单张图片
+        #获取第二张图片
+        test_img = np.expand_dims(mnist.train.images[1], 0)
+        # 结果包含 0到9 十个数的判定分
+        prediction = sess.run(y,feed_dict={x:test_img})
+        print(prediction)
 
 # 主程序入口
 def main(argv=None):

@@ -77,8 +77,8 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction,tf.float32))
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
 
-#    for i in range(10000):
-    for i in range(1):
+    for i in range(10000):
+#    for i in range(1):
 
         batch_x,batch_y = mnist.train.next_batch(50)
 
@@ -88,7 +88,5 @@ with tf.Session() as sess:
             print("step %d,train accuracy %g " %(i,train_accuracy))
 
         train_step.run(feed_dict={input:batch_x,y:batch_y})
-
-        # sess.run(train_step,feed_dict={x:batch_x,y:batch_y})
-
+#        sess.run(train_step,feed_dict={x:batch_x,y:batch_y})
     print("test accuracy %g " % accuracy.eval(feed_dict={input:mnist.test.images,y:mnist.test.labels}))
